@@ -1,0 +1,72 @@
+*,
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+textarea {
+  /* Menghapus border */
+  border: none;
+  /* Menghapus outline saat fokus */
+  outline: none;
+  /* Menghapus latar belakang */
+  background: none;
+  /* Menghapus padding internal */
+  padding: 0;
+  /* Menghapus margin eksternal */
+  margin: 0;
+  /* Menghapus bayangan (shadow) bawaan jika ada */
+  box-shadow: none;
+  /* Mengatur ulang ukuran font, line-height, dan warna teks ke nilai default/inherit */
+  font: inherit;
+  color: inherit;
+  /* Menghapus scrollbar (opsional, tergantung browser/OS) */
+  overflow: auto; /* Bisa juga 'hidden' jika benar-benar tidak ingin ada scrollbar */
+  /* Menghapus kemampuan resize oleh pengguna (opsional) */
+  resize: none;
+  /* Untuk memastikan tampilan di berbagai browser (misalnya, di WebKit) */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  /* background-color: aqua; */
+}
+
+button {
+  /* Menghapus semua border */
+  border: none;
+  /* Menghilangkan latar belakang, membuatnya transparan */
+  background: none;
+  /* Menghapus padding internal */
+  padding: 0;
+  /* Menghapus margin eksternal */
+  margin: 0;
+  /* Menghilangkan outline saat fokus */
+  outline: none;
+  /* Menghapus bayangan (shadow) bawaan jika ada */
+  box-shadow: none;
+  /* Mengatur ulang font, warna teks, dan line-height ke nilai inherit/default */
+  font: inherit;
+  color: inherit;
+  /* Menghilangkan kursor pointer bawaan, sehingga kursor kembali ke default */
+  cursor: default;
+  /* Menghilangkan style bawaan khusus browser (penting!) */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Mengatur ulang alignment teks (opsional, tergantung kebutuhan) */
+  text-align: inherit;
+  /* Mengatur ulang property text-transform (opsional) */
+  text-transform: none;
+}
+
+:root {
+  --main-background: #f7f7f7;
+  --biru: #1e93ab;
+}

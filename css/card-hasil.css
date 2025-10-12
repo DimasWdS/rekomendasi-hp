@@ -1,0 +1,11 @@
+@media (max-width: 640px) {
+  .container-card-mobile {
+    flex-direction: column;
+    /* height:rem !important; */
+  }
+  .con-foto-mobile {
+    width: 100% !important;
+    /* height: 0; */
+    aspect-ratio: 1/1 !important;
+  }
+}

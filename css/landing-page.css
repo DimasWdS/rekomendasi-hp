@@ -1,0 +1,99 @@
+.landing-page {
+  height: 100dvh;
+  width: 100%;
+}
+
+.landing-page .con-btn-start {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 5%;
+  z-index: 3;
+}
+.landing-page .con-btn-start button {
+  background-color: rgb(231, 151, 2);
+  border-radius: 20px;
+  padding: 0.8rem 1rem;
+  font-family: "Poppins";
+  font-weight: 800;
+  cursor: pointer;
+  border: 3px solid rgb(36, 34, 34);
+  box-shadow: 0 5px 0 rgb(231, 151, 2);
+  transition: all 0.2s ease;
+}
+
+.landing-page .con-btn-start button:hover {
+  box-shadow: 0 2px 0 rgb(231, 151, 2) !important;
+  transform: translateY(2px);
+}
+
+.landing-page .con-teks {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /* display: flex; */
+}
+.landing-page .con-teks div {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2rem;
+  /* align-items: center; */
+}
+@media (max-width: 640px) {
+  .landing-page .con-teks div {
+    width: 100% !important;
+  }
+}
+.landing-page .con-teks div h1 {
+  font-family: "Poppins";
+}
+.landing-page .con-teks div h4 {
+  font-family: "Poppins";
+}
+.landing-page .con-teks div p {
+  margin-top: 5px;
+  font-family: "Inter";
+  font-size: 0.8em;
+}
+
+.landing-page .con-foto {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* background-color: green; */
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: end;
+}
+.landing-page .con-foto div {
+  height: 100%;
+  width: 50%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-page .con-foto div div {
+  width: 100%;
+  scale: 0.6;
+  aspect-ratio: 1/1;
+  /* background-color: green; */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(../asset/img/gambar-hp.png);
+}
+
+@media (max-width: 640px) {
+  .landing-page .con-foto div div {
+    display: none;
+  }
+}

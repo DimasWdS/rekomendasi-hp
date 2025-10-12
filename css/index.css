@@ -1,0 +1,105 @@
+.container-form-input {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  /* height: 20rem; */
+  width: 100%;
+  /* background-color: yellow; */
+  padding: 1rem 2rem;
+  z-index: 3;
+  /* display: none; */
+}
+
+.displayHidden {
+  display: none !important;
+}
+
+@media (max-width: 1024px) {
+  .container-input {
+    width: 70% !important;
+  }
+}
+@media (max-width: 640px) {
+  .container-input {
+    width: 100% !important;
+  }
+}
+.container-input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 10rem;
+  width: 60%;
+  max-width: 80rem;
+  /* background-color: green; */
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.534);
+  /* overflow: hidden; */
+  box-shadow: rgba(0, 0, 0, 0.543) 0px 5px 15px;
+  background-color: var(--main-background);
+}
+.container-input textarea {
+  /* height: 100%; */
+  width: 100%;
+  resize: none;
+  padding: 1rem;
+  flex: 1;
+}
+
+.container-input .container-buttons {
+  height: 3rem;
+  width: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  padding: 0.2rem 1rem;
+  justify-content: end;
+}
+
+.btn-send {
+  height: 100%;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+}
+
+.card-hasil {
+  width: 90%;
+  /* height: 20rem; */
+  display: flex;
+  flex-direction: column;
+  /* background-color: aqua; */
+  padding: 2rem 1rem;
+  gap: 2rem;
+}
+
+.btn-hidden {
+  position: absolute;
+  height: 2rem;
+  aspect-ratio: 1/1;
+  /* top: -50%; */
+  left: 100%;
+  bottom: 100%;
+  transform: translate(-50%, 50%);
+}
+
+.btn-hidden button {
+  height: 100%;
+  width: 100%;
+  border: 2px solid rgb(36, 34, 34);
+  background-color: rgb(231, 151, 2);
+  border-radius: 50%;
+  font-family: "Poppins";
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: green; */
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgb(231, 151, 2);
+  transition: all 0.2s ease;
+}
+
+.btn-hidden button:hover {
+  box-shadow: 0 2px 0 rgb(231, 151, 2);
+  transform: translateY(2px);
+}

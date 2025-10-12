@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REKOMEDASI HP</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/color.css" />
+    <link rel="stylesheet" href="css/landing-page.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/conainer-hasil.css" />
+    <link rel="stylesheet" href="css/card-hasil.css" />
+    <link rel="stylesheet" href="css/font.css" />
+  </head>
+  <body>
+    <section class="landing-page">
+      <div class="con-btn-start">
+        <button id="start-sistem">Ayo Mulai</button>
+      </div>
+      <div class="con-teks">
+        <div>
+          <h1>Selamat Datang di Website matkul Sistem Pakar</h1>
+          <h4>Dosen Puguh Jayadi, S.Kom, M.Kom</h4>
+          <p>
+            Website ini memberikan beberapa rekomendasi smartphone berdasarkan
+            kriteria yang ingin anda cari
+          </p>
+        </div>
+      </div>
+      <div class="con-foto">
+        <div>
+          <div></div>
+        </div>
+      </div>
+    </section>
+    <!--  -->
+    <section class="container-form-input">
+      <section class="container-input displayHidden">
+        <textarea
+          class="inter"
+          name="input-data"
+          id="input-data"
+          placeholder="Masukan spesifikasi hp yang ingin anda cari disini!"
+        ></textarea>
+        <div class="container-buttons">
+          <button class="btn-send" id="btn-send">
+            <img src="asset/icon/send.svg" alt="send" />
+          </button>
+        </div>
+        <div class="btn-hidden"><button>X</button></div>
+      </section>
+    </section>
+    <!--  -->
+    <section class="container-hasil">
+      <div class="card-hasil"></div>
+    </section>
+
+    <script type="module" src="javascrip/index.js"></script>
+    <script type="module" src="javascrip/landing-page.js"></script>
+  </body>
+</html>
