@@ -28,9 +28,7 @@
         </div>
       </div>
       <div class="con-foto">
-        <div>
-          <div></div>
-        </div>
+        <div></div>
       </div>
     </section>
     <!--  -->
@@ -57,5 +55,31 @@
 
     <script type="module" src="javascrip/index.js"></script>
     <script type="module" src="javascrip/landing-page.js"></script>
+    <script>
+      const user = {
+        nama: "Budi",
+        usia: 25,
+        pekerjaan: "Developer",
+        kota: "Jakarta",
+      };
+
+      console.log("--- Menggunakan for...in ---");
+
+      for (const kunci in user) {
+        // 'kunci' akan berisi nama properti (contoh: "nama", "usia")
+        // user[kunci] akan berisi nilai properti (contoh: "Budi", 25)
+        console.log(`${kunci}: ${user[kunci]}`);
+      }
+
+      // const cari = "poco";
+      // const merk = ["samsung", "poco", "oppo"];
+
+      // // Gunakan Array.includes() untuk memeriksa apakah nilai 'cari' ada di dalam array 'merk'
+      // if (merk.includes(cari)) {
+      //   console.log("benar"); // Output: benar
+      // } else {
+      //   console.log("salah");
+      // }
+    </script>
   </body>
 </html>

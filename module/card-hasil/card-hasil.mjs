@@ -10,7 +10,9 @@ function createCardHasil(
   priceHp,
   networkHp,
   cameraHp,
-  fotoHp
+  fotoHp,
+  reson,
+  kireteriaHp
 ) {
   //   console.log("tes");
 
@@ -91,7 +93,7 @@ function createCardHasil(
       boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
     });
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 8; i++) {
       const conCardSpec = document.createElement("div");
       const label = document.createElement("label");
       const conTeks = document.createElement("section");
@@ -184,7 +186,53 @@ function createCardHasil(
           break;
         case 6:
           label.textContent = "Others";
-          teks.textContent = `Network : ${networkHp}, Camera : ${cameraHp}`;
+          teks.textContent = `Network : ${networkHp}, Camera : ${cameraHp} MP`;
+          break;
+        case 7:
+          label.textContent = "Reason";
+
+          teks.innerHTML = " ";
+          const ul = document.createElement("ul");
+          teks.appendChild(ul);
+          ul.innerHTML = " ";
+
+          const cari = `${kireteriaHp}`;
+          const merk = ["samsung", "poco", "oppo", "infinix"];
+
+          if (merk.includes(cari)) {
+            Object.assign(ul.style, {
+              padding: "0 0 0 1rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+            });
+
+            for (const [kunci, alasan] of Object.entries(reson)) {
+              const li = document.createElement("li");
+              ul.appendChild(li);
+
+              li.textContent = alasan;
+            }
+          } else {
+            Object.assign(ul.style, {
+              padding: "0 0 0 1rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+            });
+
+            for (let i = 0; i < kireteriaHp.length; i++) {
+              const li = document.createElement("li");
+              ul.appendChild(li);
+
+              const kunciSaatIni = kireteriaHp[i];
+
+              const reasonHp = reson[kunciSaatIni];
+
+              li.textContent = reasonHp;
+            }
+          }
+
           break;
       }
     }

@@ -16,8 +16,6 @@ btnSend.addEventListener("click", () => {
     .split(",")
     .map((item) => item.toLowerCase().trim());
 
-  console.log("Kata kunci:", dataArray);
-
   const hasil = data.filter((item) => {
     const nilaiGabungan = Object.values(item)
       .map((val) => (Array.isArray(val) ? val.join(" ") : val))
@@ -48,6 +46,7 @@ btnSend.addEventListener("click", () => {
       network,
       camera,
       foto,
+      reson,
     } = hp;
 
     createCardHasil(
@@ -60,7 +59,9 @@ btnSend.addEventListener("click", () => {
       price,
       network,
       camera,
-      foto
+      foto,
+      reson,
+      dataArray
     );
   });
 });
