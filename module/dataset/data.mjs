@@ -16,6 +16,23 @@ const data = [
         "Hp ini sangat cocok untuk foto foto karena dibekali kamera 100 MP",
     },
   },
+  {
+    name: "samsung s 200",
+    label: ["gaming", "all rounder", "flagship", "fotografer"],
+    screen: "amoled",
+    chipset: "snapdragon 8 Elite",
+    storage: 512,
+    battery: 5000,
+    price: 20000000,
+    network: "5G",
+    foto: "samsungs25.png",
+    camera: 100,
+    reson: {
+      gaming: "samsung s25 ultra sangan cocok untuk Gaming",
+      fotografer:
+        "Hp ini sangat cocok untuk foto foto karena dibekali kamera 100 MP",
+    },
+  },
   // {
   //   name: "poco f7",
   //   label: ["gaming", "midrange"],
@@ -29,7 +46,7 @@ const data = [
   //   camera: 58,
   // },
   {
-    name: "poco x5",
+    name: "poco x5 5g",
     label: ["gaming", "midrange"],
     screen: "amoled",
     chipset: "snapdragon 695",

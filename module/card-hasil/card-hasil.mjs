@@ -1,4 +1,6 @@
-const tes = "dimas baik hati";
+import { merk } from "./../merk-hp/merk-hp.mjs";
+
+// console.log(merk);
 
 function createCardHasil(
   conTarget,
@@ -104,9 +106,6 @@ function createCardHasil(
       conCardSpec.appendChild(conTeks);
       conTeks.appendChild(teks);
 
-      teks.textContent =
-        "RRQ TIM LOKAL RRQ TIM LOKAL RRQ TIM LOKAL RRQ TIM LOKAL RRQ TIM LOKAL";
-
       Object.assign(conCardSpec.style, {
         width: "100%",
         // height: "5rem",
@@ -194,10 +193,10 @@ function createCardHasil(
           teks.innerHTML = " ";
           const ul = document.createElement("ul");
           teks.appendChild(ul);
-          ul.innerHTML = " ";
 
+          ul.classList.add("reson-list");
+          console.log(merk);
           const cari = `${kireteriaHp}`;
-          const merk = ["samsung", "poco", "oppo", "infinix"];
 
           if (merk.includes(cari)) {
             Object.assign(ul.style, {
@@ -239,4 +238,4 @@ function createCardHasil(
   }
 }
 
-export { tes, createCardHasil };
+export { createCardHasil };

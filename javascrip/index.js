@@ -1,4 +1,4 @@
-import { tes, createCardHasil, data } from "./../module/main.mjs";
+import { createCardHasil, data } from "./../module/main.mjs";
 
 const btnSend = document.getElementById("btn-send");
 const inputData = document.getElementById("input-data");
@@ -34,6 +34,9 @@ btnSend.addEventListener("click", () => {
       "<p style='color:red;'>Tidak ada hasil yang cocok</p>";
     return;
   }
+
+  // const resonList = document.querySelector(".reson-list");
+  // resonList.innerHTML = " ";
 
   hasil.forEach((hp) => {
     const {
