@@ -1,0 +1,16 @@
+.blur-box {
+  background-color: rgba(255, 255, 255, 0.123);
+  padding: 20px;
+  /* Menerapkan efek blur 5px pada kotak */
+  /* filter: blur(5px); */
+  backdrop-filter: blur(10px);
+  /* opacity: 0.9; */
+}
+.kuda-lumping {
+  transition: all 0.3s ease;
+}
+.kuda-lumping:hover {
+  /* background-color: green !important; */
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 rgb(158, 96, 20) !important;
+}
