@@ -6,6 +6,7 @@ function createCardHasil(
   conTarget,
   namaHp,
   screenHp,
+  ramHp,
   chipsetHp,
   storageHp,
   batteryHp,
@@ -16,8 +17,6 @@ function createCardHasil(
   reson,
   kireteriaHp
 ) {
-  //   console.log("tes");
-
   const container = document.createElement("section");
   const conFoto = document.createElement("section");
   const conSpect = document.createElement("section");
@@ -95,7 +94,7 @@ function createCardHasil(
       boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
     });
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 9; i++) {
       const conCardSpec = document.createElement("div");
       const label = document.createElement("label");
       const conTeks = document.createElement("section");
@@ -172,22 +171,36 @@ function createCardHasil(
           teks.textContent = `${chipsetHp}`;
           break;
         case 3:
-          label.textContent = "Storage";
-          teks.textContent = `${storageHp} GB`;
+          label.textContent = "RAM";
+          teks.textContent = `${ramHp.map((el) => el + "GB").join(" / ")}`;
           break;
         case 4:
+          label.textContent = "Storage";
+          teks.textContent = `${storageHp.map((el) => el + "GB").join(" / ")}`;
+          break;
+        case 5:
           label.textContent = "Battery";
           teks.textContent = `${batteryHp} MAH`;
           break;
-        case 5:
+        case 6:
           label.textContent = "Price";
           teks.textContent = `Start from ${priceHp}`;
           break;
-        case 6:
-          label.textContent = "Others";
-          teks.textContent = `Network : ${networkHp}, Camera : ${cameraHp} MP`;
-          break;
         case 7:
+          label.textContent = "Others";
+          teks.textContent = `Network : ${networkHp}, Camera : ${cameraHp
+            .map((el, index) => {
+              if (index === 0) {
+                return "Back " + el + "MP";
+              } else if (index === 1) {
+                return "Front " + el + "MP";
+              } else {
+                return el + "MP";
+              }
+            })
+            .join(" / ")}`;
+          break;
+        case 8:
           label.textContent = "Reason";
 
           teks.innerHTML = " ";
@@ -195,41 +208,64 @@ function createCardHasil(
           teks.appendChild(ul);
 
           ul.classList.add("reson-list");
-          console.log(merk);
+
           const cari = `${kireteriaHp}`;
 
-          if (merk.includes(cari)) {
-            Object.assign(ul.style, {
-              padding: "0 0 0 1rem",
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-            });
+          console.log(kireteriaHp);
 
-            for (const [kunci, alasan] of Object.entries(reson)) {
+          switch (true) {
+            case merk.includes(cari):
+              Object.assign(ul.style, {
+                padding: "0 0 0 1rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+              });
+
+              for (const [kunci, alasan] of Object.entries(reson)) {
+                const li = document.createElement("li");
+
+                ul.appendChild(li);
+
+                li.textContent = alasan;
+              }
+              break;
+            case cari === "amoled":
+              Object.assign(ul.style, {
+                padding: "0 0 0 1rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+              });
               const li = document.createElement("li");
               ul.appendChild(li);
 
-              li.textContent = alasan;
-            }
-          } else {
-            Object.assign(ul.style, {
-              padding: "0 0 0 1rem",
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-            });
+              const layar = reson.amoled;
+              const layarIps = reson.ips;
 
-            for (let i = 0; i < kireteriaHp.length; i++) {
-              const li = document.createElement("li");
-              ul.appendChild(li);
+              li.textContent = layar;
+              li.textContent = layarIps;
 
-              const kunciSaatIni = kireteriaHp[i];
+              break;
+            default:
+              Object.assign(ul.style, {
+                padding: "0 0 0 1rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+              });
+              console.log(kireteriaHp);
 
-              const reasonHp = reson[kunciSaatIni];
+              for (let i = 0; i < kireteriaHp.length; i++) {
+                const li = document.createElement("li");
+                ul.appendChild(li);
 
-              li.textContent = reasonHp;
-            }
+                const kunciSaatIni = kireteriaHp[i];
+
+                const reasonHp = reson[kunciSaatIni];
+
+                li.textContent = reasonHp;
+              }
           }
 
           break;

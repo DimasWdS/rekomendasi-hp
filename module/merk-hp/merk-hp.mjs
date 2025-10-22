@@ -1,4 +1,8 @@
 let merkUniversal = [
+  "all rounder",
+  "flagship",
+  "midrange",
+  "lowend",
   "samsung",
   "iphone",
   "poco",
@@ -7,6 +11,7 @@ let merkUniversal = [
   "oppo",
   "infinix",
   "itel",
+  "redmi",
 ];
 
 let merkSpesifik = ["samsung s 25", "poco x5 5g"];

@@ -1,78 +1,54 @@
 const data = [
   {
-    name: "samsung s 25",
+    name: "samsung s24 ultra",
     label: ["gaming", "all rounder", "flagship", "fotografer"],
     screen: "amoled",
     chipset: "snapdragon 8 Elite",
-    storage: 512,
+    // dari yang kecil ke yang besar
+    ram: [12],
+    // dari yang kecil ke yang besar
+    storage: [256, 512, 1000],
     battery: 5000,
-    price: 20000000,
+    price: 16999000,
     network: "5G",
     foto: "samsungs25.png",
-    camera: 100,
+    //belakang | depan
+    camera: [200, 50],
     reson: {
-      gaming: "samsung s25 ultra sangan cocok untuk Gaming",
+      gaming:
+        "samsung s25 ultra sangan cocok untuk Gaming hp ini digunakan oleh proplayer MLBB untuk turnamen resmi MPL Indonesia",
       fotografer:
-        "Hp ini sangat cocok untuk foto foto karena dibekali kamera 100 MP",
+        "Hp ini sangat cocok untuk foto foto karena dibekali kamera utama 200 MP",
+      amoled:
+        "Layar Amoled memiliki ketajaman warna diatas layar dengan tipe IPS. Sangat cocok untuk bermain game atau menonton film dengan akurasi warna yang tinggi",
     },
   },
+
+  // LOWEND
+
   {
-    name: "samsung s 200",
-    label: ["gaming", "all rounder", "flagship", "fotografer"],
-    screen: "amoled",
-    chipset: "snapdragon 8 Elite",
-    storage: 512,
-    battery: 5000,
-    price: 20000000,
-    network: "5G",
-    foto: "samsungs25.png",
-    camera: 100,
+    name: "redmi 14c",
+    label: ["lowend"],
+    screen: "ips",
+    chipset: "mediatek helio g81 ultra",
+    // dari yang kecil ke yang besar
+    ram: [6, 8],
+    // dari yang kecil ke yang besar
+    storage: [128, 256],
+    battery: 5100,
+    price: 1300000,
+    network: "4G",
+    foto: "",
+    //belakang | depan
+    camera: [50, 13],
     reson: {
-      gaming: "samsung s25 ultra sangan cocok untuk Gaming",
-      fotografer:
-        "Hp ini sangat cocok untuk foto foto karena dibekali kamera 100 MP",
+      gaming: "none",
+      fotografer: "none",
+      amoled: "none",
     },
   },
-  // {
-  //   name: "poco f7",
-  //   label: ["gaming", "midrange"],
-  //   screen: "amoled",
-  //   chipset: "snapdragon gen 5",
-  //   storage: 256,
-  //   battery: 5000,
-  //   price: 6000000,
-  //   network: "5G",
-  //   foto: "pocof7.png",
-  //   camera: 58,
-  // },
-  {
-    name: "poco x5 5g",
-    label: ["gaming", "midrange"],
-    screen: "amoled",
-    chipset: "snapdragon 695",
-    storage: 256,
-    battery: 5000,
-    price: 4000000,
-    network: "5G",
-    foto: "pocox5.png",
-    camera: 48,
-    reson: {
-      gaming: "kurang untuk game berat",
-      fotografer: "kurang karena hp ini hanya 48 Mp",
-    },
-  },
-  // {
-  //   name: "oppo A15",
-  //   label: ["lowend"],
-  //   screen: "ips",
-  //   chipset: "Mediatek MT6765 Helio P35",
-  //   storage: 32,
-  //   battery: 4000,
-  //   price: 3500000,
-  //   network: "4G",
-  //   foto: "pocox5.png",
-  //   camera: 20,
-  // },
+
+  // MIDRANGE
 ];
 
 export { data };

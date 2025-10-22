@@ -1,4 +1,4 @@
-import { createCardHasil, data } from "./../module/main.mjs";
+import { createCardHasil, data, kamus } from "./../module/main.mjs";
 
 const btnSend = document.getElementById("btn-send");
 const inputData = document.getElementById("input-data");
@@ -14,7 +14,13 @@ btnSend.addEventListener("click", () => {
 
   const dataArray = dataInput
     .split(",")
-    .map((item) => item.toLowerCase().trim());
+    .map((item) => item.toLowerCase().trim())
+    .map((kata) => {
+      if (kamus.hasOwnProperty(kata)) {
+        return kamus[kata];
+      }
+      return kata;
+    });
 
   const hasil = data.filter((item) => {
     const nilaiGabungan = Object.values(item)
@@ -25,6 +31,7 @@ btnSend.addEventListener("click", () => {
     return dataArray.every((keyword) => nilaiGabungan.includes(keyword));
   });
 
+  console.log("Keyword pencarian:", dataArray);
   console.log("Hasil pencarian:", hasil);
 
   containerCardHasil.innerHTML = "";
@@ -35,14 +42,12 @@ btnSend.addEventListener("click", () => {
     return;
   }
 
-  // const resonList = document.querySelector(".reson-list");
-  // resonList.innerHTML = " ";
-
   hasil.forEach((hp) => {
     const {
       name,
       screen,
       chipset,
+      ram,
       storage,
       battery,
       price,
@@ -56,6 +61,7 @@ btnSend.addEventListener("click", () => {
       containerCardHasil,
       name,
       screen,
+      ram,
       chipset,
       storage,
       battery,
