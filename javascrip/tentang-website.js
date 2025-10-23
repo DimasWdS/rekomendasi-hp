@@ -35,6 +35,8 @@ Object.assign(conKonten.style, {
   backgroundColor: "var(--white)",
   borderRadius: "10px",
   boxShadow: "rgba(0, 0, 0, 0.74) 0px 3px 8px",
+  // overflow: "hidden",
+  padding: "20px 2rem",
 });
 
 const conBtnClose = document.createElement("section");
@@ -50,6 +52,7 @@ const a = document.createElement("a");
     position: "absolute",
     height: "3rem",
     aspectRatio: "1/1",
+
     // backgroundColor: "yellow",
     borderRadius: "50%",
     left: "100%",
@@ -114,4 +117,31 @@ const a = document.createElement("a");
       transform: "translateY(-100%)",
     });
   });
+}
+
+{
+  const container = document.createElement("section");
+  const teks1 = document.createElement("p");
+
+  conKonten.appendChild(container);
+  container.appendChild(teks1);
+
+  Object.assign(container.style, {
+    height: "100%",
+    width: "100%",
+    // backgroundColor: "green",
+    // borderRadius: "10px",
+    display: "flex",
+    flexDirection: "column",
+  });
+
+  // console.log(container);
+
+  [teks1].forEach(
+    (el) => el.classList.add("monospace") + (el.style.fontSize = "1.3em")
+  );
+
+  {
+    teks1.textContent = "Website ini Menggunakan metode Backward chaining";
+  }
 }

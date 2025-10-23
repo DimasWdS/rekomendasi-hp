@@ -6,16 +6,14 @@ function createCardHasil(
   conTarget,
   namaHp,
   screenHp,
+  chipHp,
   ramHp,
-  chipsetHp,
   storageHp,
   batteryHp,
   priceHp,
-  networkHp,
-  cameraHp,
-  fotoHp,
-  reson,
-  kireteriaHp
+  detailKecocokan,
+  skorkecocokan,
+  dataSearch
 ) {
   const container = document.createElement("section");
   const conFoto = document.createElement("section");
@@ -26,6 +24,7 @@ function createCardHasil(
   container.appendChild(conSpect);
 
   container.classList.add("container-card-mobile");
+  container.classList.add("kudaLumping");
 
   Object.assign(container.style, {
     // height: "20rem", //asumsi
@@ -61,7 +60,7 @@ function createCardHasil(
       // backgroundColor: "green",
       backgroundPosition: "center",
       backgroundSize: "cover",
-      backgroundImage: `url(asset/img-hp/${fotoHp})`,
+      // backgroundImage: `url(asset/img-hp/${fotoHp})`,
       filter: "drop-shadow(0 14px 16px rgba(0, 0, 0, 0.8))",
     });
   }
@@ -137,25 +136,29 @@ function createCardHasil(
         borderTopRightRadius: "8px",
         color: "#191919ff",
         boxShadow: "rgba(0, 0, 0, 0.35) 0px 8px 15px -3px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
       });
 
-      teks.classList.add("inter");
-      Object.assign(teks.style, {
-        padding: "0.8rem 0.2rem",
-        display: "inline-flex",
-        width: "100%",
-        backgroundColor: "#e8d8c9",
-        fontWeight: "800",
-        // overflow: "auto", // Tidak diperlukan jika wrapping sudah benar
-        // whiteSpace: "normal", // Sudah default, tidak perlu eksplisit
+      teks.classList.add("kayuBakar");
 
-        // **KEY FIX 🔑**
-        wordBreak: "break-all", // Memaksa pemutusan baris untuk satu kata yang sangat panjang
+      const kayuBakar = document.querySelectorAll(".kayuBakar");
 
-        // wordWrap: "break-word", // Lama tapi masih banyak dipakai
-        // overflowWrap: "break-word", // modern
-        borderRadius: "5px",
+      kayuBakar.forEach((el) => {
+        Object.assign(el.style, {
+          padding: "0.8rem 0.2rem",
+          display: "inline-flex",
+          width: "100%",
+          backgroundColor: "#e8d8c9",
+          fontWeight: "800",
+          wordBreak: "break-all",
+          borderRadius: "5px",
+          fontFamily: "Inter",
+        });
       });
+
+      // console.log(detailKecocokan);
 
       switch (i) {
         case 0:
@@ -168,7 +171,7 @@ function createCardHasil(
           break;
         case 2:
           label.textContent = "Chipset";
-          teks.textContent = `${chipsetHp}`;
+          teks.textContent = `${chipHp}`;
           break;
         case 3:
           label.textContent = "RAM";
@@ -180,7 +183,7 @@ function createCardHasil(
           break;
         case 5:
           label.textContent = "Battery";
-          teks.textContent = `${batteryHp} MAH`;
+          teks.textContent = `${batteryHp} mAh`;
           break;
         case 6:
           label.textContent = "Price";
@@ -188,86 +191,81 @@ function createCardHasil(
           break;
         case 7:
           label.textContent = "Others";
-          teks.textContent = `Network : ${networkHp}, Camera : ${cameraHp
-            .map((el, index) => {
-              if (index === 0) {
-                return "Back " + el + "MP";
-              } else if (index === 1) {
-                return "Front " + el + "MP";
-              } else {
-                return el + "MP";
-              }
-            })
-            .join(" / ")}`;
+          teks.textContent = `Others`;
+
           break;
         case 8:
-          label.textContent = "Reason";
-
-          teks.innerHTML = " ";
-          const ul = document.createElement("ul");
-          teks.appendChild(ul);
-
-          ul.classList.add("reson-list");
-
-          const cari = `${kireteriaHp}`;
-
-          console.log(kireteriaHp);
-
+          label.textContent = "Reson";
           switch (true) {
-            case merk.includes(cari):
-              Object.assign(ul.style, {
-                padding: "0 0 0 1rem",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-              });
+            case dataSearch.includes("gaming"):
+              teks.textContent = `${namaHp} tingkat kecocokan untuk ${dataSearch} : ${Math.round(
+                skorkecocokan
+              )}%`;
 
-              for (const [kunci, alasan] of Object.entries(reson)) {
-                const li = document.createElement("li");
+              for (let i = 0; i < 6; i++) {
+                const teksExtra = document.createElement("span");
 
-                ul.appendChild(li);
+                conTeks.appendChild(teksExtra);
 
-                li.textContent = alasan;
+                Object.assign(teksExtra.style, {
+                  padding: "0.8rem 0.2rem",
+                  display: "inline-flex",
+                  width: "100%",
+                  backgroundColor: "#e8d8c9",
+                  fontWeight: "800",
+                  wordBreak: "break-all",
+                  borderRadius: "5px",
+                  fontFamily: "Inter",
+                });
+                switch (i) {
+                  case 0:
+                    teksExtra.textContent = `Layar ${namaHp}: ${
+                      detailKecocokan.screen
+                        ? "Cocok untuk gaming"
+                        : "Kurang cocok untuk gaming"
+                    }`;
+                    break;
+                  case 1:
+                    teksExtra.textContent = `Prosesor ${namaHp} ${
+                      detailKecocokan.chipset
+                        ? "Cocok Untuk Gaming"
+                        : "Kurang cocok untuk gaming"
+                    }`;
+                    break;
+                  case 2:
+                    teksExtra.textContent = `Ram ${namaHp} ${
+                      detailKecocokan.ram
+                        ? "Cocok untuk gaming"
+                        : "Kurang cocok untuk gaming"
+                    }`;
+                    break;
+                  case 3:
+                    teksExtra.textContent = `Storage ${namaHp} ${
+                      detailKecocokan.storage
+                        ? "Cocok untuk menyimpan data game"
+                        : "Kurang cocok untuk menyimpan data game"
+                    }`;
+                    break;
+                  case 4:
+                    teksExtra.textContent = `Refres rate ${namaHp} ${
+                      detailKecocokan.refresRate
+                        ? "Cocok Untuk main gaming"
+                        : "Kurang cocok untuk gaming"
+                    }`;
+                    break;
+                  case 5:
+                    teksExtra.textContent = `Battery ${namaHp} ${
+                      detailKecocokan.battery
+                        ? "cocok untuk gaming"
+                        : "kurang cocok untuk gaming"
+                    }`;
+                    break;
+                }
               }
+
+              // teks.textContent = `Reson`;
               break;
-            case cari === "amoled":
-              Object.assign(ul.style, {
-                padding: "0 0 0 1rem",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-              });
-              const li = document.createElement("li");
-              ul.appendChild(li);
-
-              const layar = reson.amoled;
-              const layarIps = reson.ips;
-
-              li.textContent = layar;
-              li.textContent = layarIps;
-
-              break;
-            default:
-              Object.assign(ul.style, {
-                padding: "0 0 0 1rem",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-              });
-              console.log(kireteriaHp);
-
-              for (let i = 0; i < kireteriaHp.length; i++) {
-                const li = document.createElement("li");
-                ul.appendChild(li);
-
-                const kunciSaatIni = kireteriaHp[i];
-
-                const reasonHp = reson[kunciSaatIni];
-
-                li.textContent = reasonHp;
-              }
           }
-
           break;
       }
     }

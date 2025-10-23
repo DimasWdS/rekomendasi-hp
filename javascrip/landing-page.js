@@ -25,4 +25,4 @@ btnXBox.addEventListener("click", () => {
   //   console.log("dancok");
 });
 
-console.log(boxSearch);
+// console.log(boxSearch);
