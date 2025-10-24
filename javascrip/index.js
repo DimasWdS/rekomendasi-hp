@@ -24,6 +24,7 @@ btnSend.addEventListener("click", () => {
     });
 
   console.log(dataSearch);
+
   switch (true) {
     case dataSearch.includes("gaming"):
       // console.log("mencari hp gaming");
@@ -37,6 +38,7 @@ btnSend.addEventListener("click", () => {
         let ram = false;
         let penyimpanan = false;
         let baterai = false;
+        let speaker = false;
 
         // console.log(hpGaming.refresRate);
 
@@ -50,7 +52,7 @@ btnSend.addEventListener("click", () => {
           // console.log("Chip cocok");
         }
 
-        if (hpGaming.teloGaming.includes(parseInt(hp.telo))) {
+        if (hpGaming.refresRate.includes(parseInt(hp.refresRate))) {
           refresRate = true;
           // console.log("telo");
         }
@@ -65,9 +67,17 @@ btnSend.addEventListener("click", () => {
           // console.log("penyimpanan cocok");
         }
 
-        if (hpGaming.battery.includes(parseInt(hp.battery))) {
+        // if (hpGaming.battery.includes(parseInt(hp.battery))) {
+        //   baterai = true;
+        //   // console.log("baterai cocok");
+        // }
+
+        if (hpGaming.battery <= hp.battery) {
           baterai = true;
-          // console.log("baterai cocok");
+        }
+
+        if (hp.speaker === "stereo") {
+          speaker = true;
         }
 
         const totalKriteriaDipenuhi = [
@@ -77,9 +87,10 @@ btnSend.addEventListener("click", () => {
           ram,
           penyimpanan,
           baterai,
+          speaker,
         ].filter(Boolean).length;
 
-        const persentaseKecocokan = (totalKriteriaDipenuhi / 6) * 100;
+        const persentaseKecocokan = (totalKriteriaDipenuhi / 7) * 100;
 
         // console.log(totalKriteriaDipenuhi);
 
@@ -91,6 +102,12 @@ btnSend.addEventListener("click", () => {
           storageHp: hp.storage,
           batteryHp: hp.battery,
           priceHp: hp.price,
+          network: hp.network,
+          frontCam: hp.frontCam,
+          backCam: hp.backCam,
+          refresRate: hp.refresRate,
+          fotoHp: hp.foto,
+          speakerHp: hp.speaker,
           detailKecocokan: {
             screen: layar,
             chipset: prosesor,
@@ -98,6 +115,7 @@ btnSend.addEventListener("click", () => {
             ram: ram,
             storage: penyimpanan,
             battery: baterai,
+            speaker: speaker,
           },
           skorkecocokan: persentaseKecocokan,
         };
@@ -108,10 +126,13 @@ btnSend.addEventListener("click", () => {
       const hasilTerurut = hasilPencocokan.sort(
         (a, b) => b.skorkecocokan - a.skorkecocokan
       );
+      const hasilLolosFilter = hasilTerurut.filter(
+        (hp) => hp.skorkecocokan >= 60
+      );
 
       // console.log(hasilPencocokan);
 
-      hasilPencocokan.forEach((finalHp) => {
+      hasilLolosFilter.forEach((finalHp) => {
         const {
           namaHp,
           screenHp,
@@ -120,8 +141,14 @@ btnSend.addEventListener("click", () => {
           storageHp,
           batteryHp,
           priceHp,
+          network,
+          frontCam,
+          backCam,
+          refresRate,
+          fotoHp,
           detailKecocokan,
           skorkecocokan,
+          speaker,
         } = finalHp;
 
         createCardHasil(
@@ -135,7 +162,12 @@ btnSend.addEventListener("click", () => {
           priceHp,
           detailKecocokan,
           skorkecocokan,
-          dataSearch
+          dataSearch,
+          network,
+          frontCam,
+          backCam,
+          refresRate,
+          fotoHp
         );
       });
 

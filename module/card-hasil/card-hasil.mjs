@@ -13,8 +13,15 @@ function createCardHasil(
   priceHp,
   detailKecocokan,
   skorkecocokan,
-  dataSearch
+  dataSearch,
+  // data others
+  network,
+  frontCam,
+  backCam,
+  refresRate,
+  fotoHp
 ) {
+  // console.log(typeof refresRate);
   const container = document.createElement("section");
   const conFoto = document.createElement("section");
   const conSpect = document.createElement("section");
@@ -60,7 +67,7 @@ function createCardHasil(
       // backgroundColor: "green",
       backgroundPosition: "center",
       backgroundSize: "cover",
-      // backgroundImage: `url(asset/img-hp/${fotoHp})`,
+      backgroundImage: `url(asset/img-hp/${fotoHp})`,
       filter: "drop-shadow(0 14px 16px rgba(0, 0, 0, 0.8))",
     });
   }
@@ -191,7 +198,7 @@ function createCardHasil(
           break;
         case 7:
           label.textContent = "Others";
-          teks.textContent = `Others`;
+          teks.textContent = `Network : ${network}, Front Camera : ${frontCam}, Back Camera : ${backCam}, Refres Rate : ${refresRate}`;
 
           break;
         case 8:
@@ -202,7 +209,7 @@ function createCardHasil(
                 skorkecocokan
               )}%`;
 
-              for (let i = 0; i < 6; i++) {
+              for (let i = 0; i < 7; i++) {
                 const teksExtra = document.createElement("span");
 
                 conTeks.appendChild(teksExtra);
@@ -256,6 +263,13 @@ function createCardHasil(
                   case 5:
                     teksExtra.textContent = `Battery ${namaHp} ${
                       detailKecocokan.battery
+                        ? "cocok untuk gaming"
+                        : "kurang cocok untuk gaming"
+                    }`;
+                    break;
+                  case 6:
+                    teksExtra.textContent = `Speaker ${namaHp} ${
+                      detailKecocokan.speaker
                         ? "cocok untuk gaming"
                         : "kurang cocok untuk gaming"
                     }`;
