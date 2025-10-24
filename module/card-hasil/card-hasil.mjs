@@ -34,17 +34,15 @@ function createCardHasil(
   container.classList.add("kudaLumping");
 
   Object.assign(container.style, {
-    // height: "20rem", //asumsi
     width: "100%",
     maxWidth: "80rem",
     backgroundColor: "var(--young-blue)",
     backgroundColor: "#4b607f",
     display: "flex",
-    margin: "auto",
     border: "5px solid #9f9f9f9a",
     borderRadius: "8px",
     boxShadow: "rgba(79, 79, 86, 0.6) 0px 7px 29px 0px",
-    scale: "0.8",
+    scale: "0.9",
   });
   {
     const img = document.createElement("div");
@@ -198,7 +196,9 @@ function createCardHasil(
           break;
         case 7:
           label.textContent = "Others";
-          teks.textContent = `Network : ${network}, Front Camera : ${frontCam}, Back Camera : ${backCam}, Refres Rate : ${refresRate}`;
+          teks.textContent = `Network : ${network}, Front Camera : ${frontCam} MP, Back Camera : ${backCam} MP, Refres Rate : ${refresRate.map(
+            (el) => el + "Hz"
+          )}`;
 
           break;
         case 8:
