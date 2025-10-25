@@ -1,4 +1,10 @@
-import { createCardHasil, data, kamus, hpGaming } from "./../module/main.mjs";
+import {
+  createCardHasil,
+  data,
+  kamus,
+  hpGaming,
+  hpNonton,
+} from "./../module/main.mjs";
 
 const btnSend = document.getElementById("btn-send");
 const inputData = document.getElementById("input-data");
@@ -26,6 +32,7 @@ btnSend.addEventListener("click", () => {
   console.log(dataSearch);
 
   switch (true) {
+    // search gaming
     case dataSearch.includes("gaming"):
       // console.log("mencari hp gaming");
       // console.log(data);
@@ -172,8 +179,42 @@ btnSend.addEventListener("click", () => {
       });
 
       break;
+    // search fotografer
     case dataSearch.includes("fotografer"):
       console.log("mencari hp untuk foto foto");
+      break;
+    case dataSearch.includes("nonton"):
+      const hpNontonData = data.forEach((hp) => {
+        let screen = false;
+        let refresRate = false;
+        let speaker = false;
+        let battery = false;
+
+        if (hp.screen === hpNonton.screen) {
+          // console.log("layar cocok");
+          screen = true;
+        }
+
+        if (hpNonton.refresRate.includes(parseInt(hp.refresRate))) {
+          refresRate = true;
+        }
+
+        if (hp.speaker === hpNonton.speaker) {
+          speaker = true;
+        }
+
+        if (hp.battery >= hpNonton.battery) {
+          battery = true;
+        }
+
+        const totalKireteria = [screen, refresRate, speaker, battery].filter(
+          Boolean
+        ).length;
+
+        // console.log(totalKireteria);
+
+        const persentaseKecocokan = (totalKireteria / 4) * 100;
+      });
       break;
   }
 });

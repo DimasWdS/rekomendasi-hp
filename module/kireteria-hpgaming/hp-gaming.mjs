@@ -11,7 +11,7 @@ const prosesorGaming = [
   "snapdragon 8s gen 4",
   "apple a17 pro",
   "mediatek dimensity 9300",
-  "qualcomm snapdragon 8 gen 3",
+  "qualcom snapdragon 8 gen 3",
   "apple a16 bionic",
   "samsung exynos 2400",
   "samsung exynos 2400e",
