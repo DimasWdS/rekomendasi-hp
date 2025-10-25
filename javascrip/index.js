@@ -155,7 +155,7 @@ btnSend.addEventListener("click", () => {
           fotoHp,
           detailKecocokan,
           skorkecocokan,
-          speaker,
+          speakerHp,
         } = finalHp;
 
         createCardHasil(
@@ -174,28 +174,29 @@ btnSend.addEventListener("click", () => {
           frontCam,
           backCam,
           refresRate,
+          speakerHp,
           fotoHp
         );
       });
 
       break;
     // search fotografer
-    case dataSearch.includes("fotografer"):
-      console.log("mencari hp untuk foto foto");
-      break;
     case dataSearch.includes("nonton"):
-      const hpNontonData = data.forEach((hp) => {
+      const hpNontonData = data.map((hp) => {
         let screen = false;
         let refresRate = false;
         let speaker = false;
         let battery = false;
 
         if (hp.screen === hpNonton.screen) {
-          // console.log("layar cocok");
           screen = true;
         }
 
-        if (hpNonton.refresRate.includes(parseInt(hp.refresRate))) {
+        const kecocokanRate = hp.refresRate.some((rate) =>
+          hpNonton.refresRate.includes(rate)
+        );
+
+        if (kecocokanRate) {
           refresRate = true;
         }
 
@@ -211,10 +212,86 @@ btnSend.addEventListener("click", () => {
           Boolean
         ).length;
 
-        // console.log(totalKireteria);
-
         const persentaseKecocokan = (totalKireteria / 4) * 100;
+
+        const kesimpulan = {
+          namaHp: hp.name,
+          screenHp: hp.screen,
+          chipHp: hp.chipset,
+          ramHp: hp.ram,
+          storageHp: hp.storage,
+          batteryHp: hp.battery,
+          priceHp: hp.price,
+          network: hp.network,
+          frontCam: hp.frontCam,
+          backCam: hp.backCam,
+          refresRate: hp.refresRate,
+          fotoHp: hp.foto,
+          speakerHp: hp.speaker,
+          skorkecocokan: persentaseKecocokan,
+          detailKecocokan: {
+            screen: screen,
+            refresRate: refresRate,
+            speaker: speaker,
+            battery: battery,
+          },
+        };
+
+        return kesimpulan;
       });
+
+      console.log(hpNontonData);
+
+      const filterHpNonton = hpNontonData.filter(
+        (hp) => hp.skorkecocokan >= 70
+      );
+
+      const urutHpNonton = filterHpNonton.sort(
+        (a, b) => b.skorkecocokan - a.skorkecocokan
+      );
+
+      console.log(urutHpNonton);
+
+      urutHpNonton.forEach((finalHp) => {
+        const {
+          namaHp,
+          screenHp,
+          chipHp,
+          ramHp,
+          storageHp,
+          batteryHp,
+          priceHp,
+          network,
+          frontCam,
+          backCam,
+          refresRate,
+          fotoHp,
+          detailKecocokan,
+          skorkecocokan,
+          speakerHp,
+        } = finalHp;
+
+        createCardHasil(
+          containerCardHasil,
+          namaHp,
+          screenHp,
+          chipHp,
+          ramHp,
+          storageHp,
+          batteryHp,
+          priceHp,
+          detailKecocokan,
+          skorkecocokan,
+          dataSearch,
+          network,
+          frontCam,
+          backCam,
+          refresRate,
+          speakerHp,
+          fotoHp
+        );
+      });
+
       break;
   }
 });

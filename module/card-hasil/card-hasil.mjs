@@ -19,6 +19,7 @@ function createCardHasil(
   frontCam,
   backCam,
   refresRate,
+  speaker,
   fotoHp
 ) {
   // console.log(typeof refresRate);
@@ -198,12 +199,13 @@ function createCardHasil(
           label.textContent = "Others";
           teks.textContent = `Network : ${network}, Front Camera : ${frontCam} MP, Back Camera : ${backCam} MP, Refres Rate : ${refresRate.map(
             (el) => el + "Hz"
-          )}`;
+          )}, Speaker ${speaker}`;
 
           break;
         case 8:
           label.textContent = "Reson";
           switch (true) {
+            // gaming
             case dataSearch.includes("gaming"):
               teks.textContent = `${namaHp} tingkat kecocokan untuk ${dataSearch} : ${Math.round(
                 skorkecocokan
@@ -279,7 +281,64 @@ function createCardHasil(
 
               // teks.textContent = `Reson`;
               break;
+
+            // nonton
+
+            case dataSearch.includes("nonton"):
+              teks.textContent = `${namaHp} tingkat kecocokan untuk ${dataSearch} : ${Math.round(
+                skorkecocokan
+              )}%`;
+
+              for (let i = 0; i < 4; i++) {
+                const teksExtra = document.createElement("span");
+
+                conTeks.appendChild(teksExtra);
+
+                Object.assign(teksExtra.style, {
+                  padding: "0.8rem 0.2rem",
+                  display: "inline-flex",
+                  width: "100%",
+                  backgroundColor: "#e8d8c9",
+                  fontWeight: "800",
+                  wordBreak: "break-all",
+                  borderRadius: "5px",
+                  fontFamily: "Inter",
+                });
+
+                switch (i) {
+                  case 0:
+                    teksExtra.textContent = `Layar ${namaHp}: ${
+                      detailKecocokan.screen
+                        ? "Cocok untuk nonton"
+                        : "Kurang cocok untuk nonton"
+                    }`;
+                    break;
+                  case 1:
+                    teksExtra.textContent = `Refresh Rate ${namaHp}: ${
+                      detailKecocokan.refresRate
+                        ? "Cocok untuk nonton"
+                        : "Kurang cocok untuk nonton"
+                    }`;
+                    break;
+                  case 2:
+                    teksExtra.textContent = `Speaker ${namaHp}: ${
+                      detailKecocokan.speaker
+                        ? "Cocok untuk nonton"
+                        : "Kurang cocok untuk nonton"
+                    }`;
+                    break;
+                  case 3:
+                    teksExtra.textContent = `Battery ${namaHp}: ${
+                      detailKecocokan.battery
+                        ? "Cocok untuk nonton"
+                        : "Kurang cocok untuk nonton"
+                    }`;
+                    break;
+                }
+              }
+              break;
           }
+
           break;
       }
     }
