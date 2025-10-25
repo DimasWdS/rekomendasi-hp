@@ -11,6 +11,11 @@ const nonton = {
   "enak buat nonton film": "nonton",
   "layar bagus": "nonton",
   "kualitas gambar bagus": "nonton",
+  "hp untuk nonton": "nonton",
+  "hp untuk nonton film": "nonton",
+  "hp untuk nonton youtube": "nonton",
+  "nonton film": "nonton",
+  "nonton youtube": "nonton",
 };
 
 const universal = {
